@@ -13,6 +13,7 @@ class MyApp extends StatelessWidget {
       title: GlobalConfig.title,
       theme: ThemeData(
         primarySwatch: Colors.blue,
+        backgroundColor: Colors.white,
       ),
       home: HomePage(title: GlobalConfig.title),
       routes: {
@@ -40,9 +41,11 @@ class _HomePageState extends State<HomePage> {
       ),
       body: ListView(
         children: <Widget>[
-          RaisedButton(onPressed: () {
-            Navigator.pushNamed(context, UIRoute.friend_circle);
-          }),
+          RaisedButton(
+              child: Text('点击进入朋友圈'),
+              onPressed: () {
+                Navigator.pushNamed(context, UIRoute.friend_circle);
+              }),
         ],
       ),
     );
