@@ -1,5 +1,5 @@
-# cpp_chat
-
+# CppChat
+C++团队专用聊天吹水工具，开始了，别急
 A new Flutter project.
 
 ## Getting Started
