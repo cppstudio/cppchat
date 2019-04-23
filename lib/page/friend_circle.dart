@@ -12,7 +12,7 @@ class FriendCirclePage extends StatefulWidget {
 class FriendCircleItem {
   String username;
   String content;
-  List<Widget> images;
+  List<String> images;
   String timeStr;
   String from;
   Widget avatar;
@@ -38,37 +38,51 @@ class _FriendCirclePageState extends State<FriendCirclePage> {
     _circleList.clear();
     _circleList.add(FriendCircleItem(
       username: '用户',
-      content: '内容',
+      content: '单张图片',
       images: [
-        Image.network(
-          'http://lorempixel.com/80/80/',
-          fit: BoxFit.cover,
-        ),
+        'http://lorempixel.com/160/200/',
       ],
       timeStr: '1分钟前',
-      from: 'IT之家客户端',
-      avatar: Image.network(
-        'http://lorempixel.com/35/35/',
-        fit: BoxFit.fitHeight,
-        height: 35,
+      from: '',
+      avatar: CppChatAvatar(
+        imageUrl: 'http://lorempixel.com/35/35/',
       ),
     ));
 
     _circleList.add(FriendCircleItem(
       username: '用户',
-      content: '内容',
+      content: '4格图片',
       images: [
-        Image.network('http://lorempixel.com/80/80/', fit: BoxFit.cover),
-        Image.network('http://lorempixel.com/80/80/', fit: BoxFit.cover),
-        Image.network('http://lorempixel.com/80/80/', fit: BoxFit.cover),
-        Image.network('http://lorempixel.com/80/80/', fit: BoxFit.cover),
+        'http://lorempixel.com/80/80/?ida=1',
+        'http://lorempixel.com/80/80/?ida=2',
+        'http://lorempixel.com/80/80/?ida=3',
+        'http://lorempixel.com/80/80/?ida=4',
       ],
       timeStr: '1分钟前',
-      from: 'IT之家客户端',
-      avatar: Image.network(
-        'http://lorempixel.com/35/35/',
-        fit: BoxFit.fitHeight,
-        height: 35,
+      from: 'CppChat客户端',
+      avatar: CppChatAvatar(
+        imageUrl: 'http://lorempixel.com/35/35/',
+      ),
+    ));
+
+    _circleList.add(FriendCircleItem(
+      username: '用户',
+      content: '9格图片',
+      images: [
+        'http://lorempixel.com/80/80/?id=1',
+        'http://lorempixel.com/80/80/?id=2',
+        'http://lorempixel.com/80/80/?id=3',
+        'http://lorempixel.com/80/80/?id=4',
+        'http://lorempixel.com/80/80/?id=5',
+        'http://lorempixel.com/80/80/?id=6',
+        'http://lorempixel.com/80/80/?id=7',
+        'http://lorempixel.com/80/80/?id=8',
+        'http://lorempixel.com/80/80/?id=9',
+      ],
+      timeStr: '1分钟前',
+      from: 'CppChat客户端',
+      avatar: CppChatAvatar(
+        imageUrl: 'http://lorempixel.com/35/35/',
       ),
     ));
 
@@ -77,21 +91,11 @@ class _FriendCirclePageState extends State<FriendCirclePage> {
         username: '用户$i',
         content: '内容$i',
         images: [
-          NetworkImageEx(
-            imageUrl: 'http://lorempixel.com/80/80/?id=$i',
-            assetName: 'images/avatar.jpg',
-            height: 80,
-            fit: BoxFit.fitHeight,
-          ),
-          NetworkImageEx(
-            imageUrl: 'http://lorempixel.com/80/80/?id=${i}2',
-            assetName: 'images/avatar.jpg',
-            height: 80,
-            fit: BoxFit.fitHeight,
-          ),
+          'http://lorempixel.com/80/80/?id=$i',
+          'http://lorempixel.com/80/80/?id=${i}2',
         ],
         timeStr: '$i分钟前',
-        from: 'IT之家客户端',
+        from: 'CppChat客户端',
         avatar: CppChatAvatar(
           height: 35,
           imageUrl: 'http://lorempixel.com/35/35/?id=$i',
@@ -150,7 +154,7 @@ class _FriendCirclePageState extends State<FriendCirclePage> {
         children: <Widget>[
           /// 封面图
           NetworkImageEx(
-            assetName: 'images/avatar.jpg',
+            assetName: 'images/grey.jpg',
             imageUrl: 'http://lorempixel.com/300/300/',
             fit: BoxFit.fill,
             width: double.infinity,
@@ -215,7 +219,7 @@ class _FriendCirclePageState extends State<FriendCirclePage> {
         ),
       ),
 
-      GridImages(images: item.images),
+      GridImages(imagesUrl: item.images),
     ];
 
     /// 发布时间、来源、操作

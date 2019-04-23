@@ -6,8 +6,14 @@ class CppChatAvatar extends StatefulWidget {
   final String imageUrl;
   final double width;
   final double height;
+  final BoxFit fit;
 
-  CppChatAvatar({Key key, this.imageUrl, this.width: 35, this.height: 35})
+  CppChatAvatar(
+      {Key key,
+      this.imageUrl,
+      this.width: 35,
+      this.height: 35,
+      this.fit: BoxFit.fitHeight})
       : assert(imageUrl != null),
         super(key: key);
 
@@ -20,14 +26,14 @@ class _CppChatAvatarState extends State<CppChatAvatar> {
     /// 头像要加上一点点圆边
     /// 缓存 & 占位符加载图片
     return ClipRRect(
-      borderRadius: BorderRadius.circular(6),
+      borderRadius: BorderRadius.circular(4),
       child: NetworkImageEx(
         assetName: 'images/avatar.jpg',
         indicator: true,
         imageUrl: widget.imageUrl,
         width: widget.width,
         height: widget.height,
-        fit: BoxFit.fitHeight,
+        fit: widget.fit,
       ),
     );
   }
