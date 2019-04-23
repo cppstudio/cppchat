@@ -4,8 +4,10 @@ import 'network_image_ex.dart';
 /// 用户头像组件
 class CppChatAvatar extends StatefulWidget {
   final String imageUrl;
+  final double width;
+  final double height;
 
-  CppChatAvatar({Key key, this.imageUrl}) : super(key: key);
+  CppChatAvatar({Key key, this.imageUrl, this.width, this.height}) : super(key: key);
 
   _CppChatAvatarState createState() => _CppChatAvatarState();
 }
@@ -21,6 +23,8 @@ class _CppChatAvatarState extends State<CppChatAvatar> {
         assetImage: 'images/avatar.jpg',
         indicator: true,
         imageUrl: widget.imageUrl,
+        width: widget.width,
+        height: widget.height,
       ),
     );
   }

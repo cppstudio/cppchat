@@ -149,7 +149,7 @@ class _FriendCirclePageState extends State<FriendCirclePage> {
           /// 封面图
           NetworkImageEx(
             assetImage: 'images/avatar.jpg',
-            imageUrl: 'http://lorempixel.com/2000/2000/',
+            imageUrl: 'http://lorempixel.com/300/300/',
             fit: BoxFit.fill,
             width: double.infinity,
             height: 260,
