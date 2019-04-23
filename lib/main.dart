@@ -12,8 +12,16 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: GlobalConfig.title,
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        accentColor: Colors.white,
         backgroundColor: Colors.white,
+        bottomAppBarColor: Colors.white,
+        buttonColor: Colors.green,
+        cardColor: Colors.white,
+        dialogBackgroundColor: Colors.white,
+        highlightColor: Colors.grey,
+        primaryColor: Colors.white,
+        scaffoldBackgroundColor: Colors.white,
+        primarySwatch: Colors.blue,
       ),
       home: HomePage(title: GlobalConfig.title),
       routes: {
