@@ -173,7 +173,7 @@ class _FriendCirclePageState extends State<FriendCirclePage> {
                     padding: EdgeInsets.only(top: 10),
                     child: Text('用户名',
                         style: TextStyle(
-                          fontSize: 18,
+                          fontSize: 16,
                           color: Colors.white,
                           decoration: TextDecoration.none,
                           shadows: [
@@ -207,7 +207,8 @@ class _FriendCirclePageState extends State<FriendCirclePage> {
       /// 用户名
       Text(
         item.username,
-        style: TextStyle(fontSize: 15, color: Colors.blue[900]),
+        style: TextStyle(
+            fontSize: 15, color: Colors.blue[900], fontWeight: FontWeight.bold),
       ),
 
       /// 朋友圈文字内容
@@ -229,9 +230,12 @@ class _FriendCirclePageState extends State<FriendCirclePage> {
         crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisAlignment: MainAxisAlignment.start,
         children: <Widget>[
-          Text(item.timeStr, style: TextStyle(fontSize: 12)),
+          Text(item.timeStr,
+              style: TextStyle(fontSize: 12, color: Colors.grey[600])),
           SimpleDivider(height: 0, width: 8),
-          Expanded(child: Text(item.from, style: TextStyle(fontSize: 12))),
+          Expanded(
+              child: Text(item.from,
+                  style: TextStyle(fontSize: 12, color: Colors.grey[600]))),
           ClipRRect(
             borderRadius: BorderRadius.circular(4),
             child: Container(
@@ -270,7 +274,7 @@ class _FriendCirclePageState extends State<FriendCirclePage> {
     var column = Column(
       children: <Widget>[
         row,
-        Divider(height: 10),
+        Divider(height: 18),
       ],
     );
 

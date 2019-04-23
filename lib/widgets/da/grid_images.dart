@@ -4,6 +4,7 @@ import 'package:cpp_chat/widgets/da/network_image_ex.dart';
 
 class GridImages extends StatefulWidget {
   final List<String> imagesUrl;
+  final double spacing = 3;
 
   GridImages({Key key, this.imagesUrl})
       : assert(imagesUrl != null),
@@ -40,7 +41,7 @@ class _GridImagesState extends State<GridImages> {
       case 2:
         widgetChildren.add(Row(children: <Widget>[
           _buildGridImage(widget.imagesUrl[0]),
-          SimpleDivider(height: 0, width: 3),
+          SimpleDivider(height: 0, width: widget.spacing),
           _buildGridImage(widget.imagesUrl[1]),
         ]));
         break;
@@ -48,10 +49,10 @@ class _GridImagesState extends State<GridImages> {
         widgetChildren
           ..add(Row(children: <Widget>[
             _buildGridImage(widget.imagesUrl[0]),
-            SimpleDivider(height: 0, width: 3),
+            SimpleDivider(height: 0, width: widget.spacing),
             _buildGridImage(widget.imagesUrl[1]),
           ]))
-          ..add(SimpleDivider(height: 3, width: 0))
+          ..add(SimpleDivider(height: widget.spacing, width: 0))
           ..add(Row(children: <Widget>[
             _buildGridImage(widget.imagesUrl[2]),
           ]));
@@ -60,13 +61,13 @@ class _GridImagesState extends State<GridImages> {
         widgetChildren
           ..add(Row(children: <Widget>[
             _buildGridImage(widget.imagesUrl[0]),
-            SimpleDivider(height: 0, width: 3),
+            SimpleDivider(height: 0, width: widget.spacing),
             _buildGridImage(widget.imagesUrl[1]),
           ]))
-          ..add(SimpleDivider(height: 3, width: 0))
+          ..add(SimpleDivider(height: widget.spacing, width: 0))
           ..add(Row(children: <Widget>[
             _buildGridImage(widget.imagesUrl[2]),
-            SimpleDivider(height: 0, width: 3),
+            SimpleDivider(height: 0, width: widget.spacing),
             _buildGridImage(widget.imagesUrl[3]),
           ]));
         break;
@@ -74,15 +75,15 @@ class _GridImagesState extends State<GridImages> {
         widgetChildren
           ..add(Row(children: <Widget>[
             _buildGridImage(widget.imagesUrl[0]),
-            SimpleDivider(height: 0, width: 3),
+            SimpleDivider(height: 0, width: widget.spacing),
             _buildGridImage(widget.imagesUrl[1]),
-            SimpleDivider(height: 0, width: 3),
+            SimpleDivider(height: 0, width: widget.spacing),
             _buildGridImage(widget.imagesUrl[2]),
           ]))
-          ..add(SimpleDivider(height: 3, width: 0))
+          ..add(SimpleDivider(height: widget.spacing, width: 0))
           ..add(Row(children: <Widget>[
             _buildGridImage(widget.imagesUrl[3]),
-            SimpleDivider(height: 0, width: 3),
+            SimpleDivider(height: 0, width: widget.spacing),
             _buildGridImage(widget.imagesUrl[4]),
           ]));
         break;
@@ -90,17 +91,17 @@ class _GridImagesState extends State<GridImages> {
         widgetChildren
           ..add(Row(children: <Widget>[
             _buildGridImage(widget.imagesUrl[0]),
-            SimpleDivider(height: 0, width: 3),
+            SimpleDivider(height: 0, width: widget.spacing),
             _buildGridImage(widget.imagesUrl[1]),
-            SimpleDivider(height: 0, width: 3),
+            SimpleDivider(height: 0, width: widget.spacing),
             _buildGridImage(widget.imagesUrl[2]),
           ]))
-          ..add(SimpleDivider(height: 3, width: 0))
+          ..add(SimpleDivider(height: widget.spacing, width: 0))
           ..add(Row(children: <Widget>[
             _buildGridImage(widget.imagesUrl[3]),
-            SimpleDivider(height: 0, width: 3),
+            SimpleDivider(height: 0, width: widget.spacing),
             _buildGridImage(widget.imagesUrl[4]),
-            SimpleDivider(height: 0, width: 3),
+            SimpleDivider(height: 0, width: widget.spacing),
             _buildGridImage(widget.imagesUrl[5]),
           ]));
         break;
@@ -108,20 +109,20 @@ class _GridImagesState extends State<GridImages> {
         widgetChildren
           ..add(Row(children: <Widget>[
             _buildGridImage(widget.imagesUrl[0]),
-            SimpleDivider(height: 0, width: 3),
+            SimpleDivider(height: 0, width: widget.spacing),
             _buildGridImage(widget.imagesUrl[1]),
-            SimpleDivider(height: 0, width: 3),
+            SimpleDivider(height: 0, width: widget.spacing),
             _buildGridImage(widget.imagesUrl[2]),
           ]))
-          ..add(SimpleDivider(height: 3, width: 0))
+          ..add(SimpleDivider(height: widget.spacing, width: 0))
           ..add(Row(children: <Widget>[
             _buildGridImage(widget.imagesUrl[3]),
-            SimpleDivider(height: 0, width: 3),
+            SimpleDivider(height: 0, width: widget.spacing),
             _buildGridImage(widget.imagesUrl[4]),
-            SimpleDivider(height: 0, width: 3),
+            SimpleDivider(height: 0, width: widget.spacing),
             _buildGridImage(widget.imagesUrl[5]),
           ]))
-          ..add(SimpleDivider(height: 3, width: 0))
+          ..add(SimpleDivider(height: widget.spacing, width: 0))
           ..add(Row(
             children: <Widget>[
               _buildGridImage(widget.imagesUrl[6]),
@@ -132,24 +133,24 @@ class _GridImagesState extends State<GridImages> {
         widgetChildren
           ..add(Row(children: <Widget>[
             _buildGridImage(widget.imagesUrl[0]),
-            SimpleDivider(height: 0, width: 3),
+            SimpleDivider(height: 0, width: widget.spacing),
             _buildGridImage(widget.imagesUrl[1]),
-            SimpleDivider(height: 0, width: 3),
+            SimpleDivider(height: 0, width: widget.spacing),
             _buildGridImage(widget.imagesUrl[2]),
           ]))
-          ..add(SimpleDivider(height: 3, width: 0))
+          ..add(SimpleDivider(height: widget.spacing, width: 0))
           ..add(Row(children: <Widget>[
             _buildGridImage(widget.imagesUrl[3]),
-            SimpleDivider(height: 0, width: 3),
+            SimpleDivider(height: 0, width: widget.spacing),
             _buildGridImage(widget.imagesUrl[4]),
-            SimpleDivider(height: 0, width: 3),
+            SimpleDivider(height: 0, width: widget.spacing),
             _buildGridImage(widget.imagesUrl[5]),
           ]))
-          ..add(SimpleDivider(height: 3, width: 0))
+          ..add(SimpleDivider(height: widget.spacing, width: 0))
           ..add(Row(
             children: <Widget>[
               _buildGridImage(widget.imagesUrl[6]),
-              SimpleDivider(height: 0, width: 3),
+              SimpleDivider(height: 0, width: widget.spacing),
               _buildGridImage(widget.imagesUrl[7]),
             ],
           ));
@@ -158,26 +159,26 @@ class _GridImagesState extends State<GridImages> {
         widgetChildren
           ..add(Row(children: <Widget>[
             _buildGridImage(widget.imagesUrl[0]),
-            SimpleDivider(height: 0, width: 3),
+            SimpleDivider(height: 0, width: widget.spacing),
             _buildGridImage(widget.imagesUrl[1]),
-            SimpleDivider(height: 0, width: 3),
+            SimpleDivider(height: 0, width: widget.spacing),
             _buildGridImage(widget.imagesUrl[2]),
           ]))
-          ..add(SimpleDivider(height: 3, width: 0))
+          ..add(SimpleDivider(height: widget.spacing, width: 0))
           ..add(Row(children: <Widget>[
             _buildGridImage(widget.imagesUrl[3]),
-            SimpleDivider(height: 0, width: 3),
+            SimpleDivider(height: 0, width: widget.spacing),
             _buildGridImage(widget.imagesUrl[4]),
-            SimpleDivider(height: 0, width: 3),
+            SimpleDivider(height: 0, width: widget.spacing),
             _buildGridImage(widget.imagesUrl[5]),
           ]))
-          ..add(SimpleDivider(height: 3, width: 0))
+          ..add(SimpleDivider(height: widget.spacing, width: 0))
           ..add(Row(
             children: <Widget>[
               _buildGridImage(widget.imagesUrl[6]),
-              SimpleDivider(height: 0, width: 3),
+              SimpleDivider(height: 0, width: widget.spacing),
               _buildGridImage(widget.imagesUrl[7]),
-              SimpleDivider(height: 0, width: 3),
+              SimpleDivider(height: 0, width: widget.spacing),
               _buildGridImage(widget.imagesUrl[8]),
             ],
           ));

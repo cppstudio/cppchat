@@ -11,8 +11,8 @@ class CppChatAvatar extends StatefulWidget {
   CppChatAvatar(
       {Key key,
       this.imageUrl,
-      this.width: 35,
-      this.height: 35,
+      this.width: 40,
+      this.height: 40,
       this.fit: BoxFit.fitHeight})
       : assert(imageUrl != null),
         super(key: key);
