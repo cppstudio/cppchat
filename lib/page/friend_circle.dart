@@ -28,6 +28,7 @@ class FriendCircleItem {
 
 class _FriendCirclePageState extends State<FriendCirclePage> {
   BuildContext _context;
+  ScrollController _scrollController;
 
   var _circleList = List<FriendCircleItem>();
 
@@ -119,7 +120,8 @@ class _FriendCirclePageState extends State<FriendCirclePage> {
     return Material(
       child: RefreshIndicator(
           child: CustomScrollView(
-//          physics: const AlwaysScrollableScrollPhysics(),
+            controller: _scrollController,
+            physics: const AlwaysScrollableScrollPhysics(),
             slivers: <Widget>[
               _buildAppBar(context),
               SliverList(
@@ -137,10 +139,15 @@ class _FriendCirclePageState extends State<FriendCirclePage> {
 
   Widget _buildAppBar(BuildContext context) {
     return SliverAppBar(
+      elevation: 0,
+      brightness: Brightness.dark,
+      primary: true,
       pinned: true,
       title: Text('朋友圈'),
+      titleSpacing: 0,
       actions: <Widget>[
-        IconButton(icon: Icon(Icons.camera_alt), onPressed: () {})
+        IconButton(
+            icon: Icon(Icons.camera_alt, color: Colors.black), onPressed: () {})
       ],
       backgroundColor: Colors.white,
       expandedHeight: 280,
@@ -150,6 +157,7 @@ class _FriendCirclePageState extends State<FriendCirclePage> {
 
   Widget _buildFlexibleSpaceBar() {
     return FlexibleSpaceBar(
+      collapseMode: CollapseMode.pin,
       background: Stack(
         children: <Widget>[
           /// 封面图
