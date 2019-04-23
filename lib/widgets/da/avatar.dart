@@ -27,6 +27,7 @@ class _CppChatAvatarState extends State<CppChatAvatar> {
         imageUrl: widget.imageUrl,
         width: widget.width,
         height: widget.height,
+        fit: BoxFit.fitHeight,
       ),
     );
   }

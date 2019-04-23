@@ -1,3 +1,4 @@
+import 'package:cpp_chat/widgets/da/grid_images.dart';
 import 'package:cpp_chat/widgets/da/network_image_ex.dart';
 import 'package:flutter/material.dart';
 import 'package:cpp_chat/widgets.dart';
@@ -11,10 +12,10 @@ class FriendCirclePage extends StatefulWidget {
 class FriendCircleItem {
   String username;
   String content;
-  List<Image> images;
+  List<Widget> images;
   String timeStr;
   String from;
-  Image avatar;
+  Widget avatar;
 
   FriendCircleItem(
       {this.username,
@@ -76,23 +77,24 @@ class _FriendCirclePageState extends State<FriendCirclePage> {
         username: '用户$i',
         content: '内容$i',
         images: [
-          Image.network(
-            'http://lorempixel.com/80/80/?id=$i',
-            fit: BoxFit.fitHeight,
+          NetworkImageEx(
+            imageUrl: 'http://lorempixel.com/80/80/?id=$i',
+            assetName: 'images/avatar.jpg',
             height: 80,
+            fit: BoxFit.fitHeight,
           ),
-          Image.network(
-            'http://lorempixel.com/80/80/?id=${i}2',
-            fit: BoxFit.fitHeight,
+          NetworkImageEx(
+            imageUrl: 'http://lorempixel.com/80/80/?id=${i}2',
+            assetName: 'images/avatar.jpg',
             height: 80,
+            fit: BoxFit.fitHeight,
           ),
         ],
         timeStr: '$i分钟前',
         from: 'IT之家客户端',
-        avatar: Image.network(
-          'http://lorempixel.com/35/35/?id=$i',
-          fit: BoxFit.fitHeight,
+        avatar: CppChatAvatar(
           height: 35,
+          imageUrl: 'http://lorempixel.com/35/35/?id=$i',
         ),
       ));
     }
@@ -195,6 +197,7 @@ class _FriendCirclePageState extends State<FriendCirclePage> {
     );
   }
 
+  /// 构建每一条朋友圈
   Widget _buildFriendCircleItem(FriendCircleItem item) {
     var itemChildren = <Widget>[
       /// 用户名
@@ -203,7 +206,7 @@ class _FriendCirclePageState extends State<FriendCirclePage> {
         style: TextStyle(fontSize: 15, color: Colors.blue[900]),
       ),
 
-      /// 朋友圈内容
+      /// 朋友圈文字内容
       Container(
         padding: EdgeInsets.only(bottom: 3),
         child: Text(
@@ -211,171 +214,32 @@ class _FriendCirclePageState extends State<FriendCirclePage> {
           style: TextStyle(fontSize: 14),
         ),
       ),
+
+      GridImages(images: item.images),
     ];
 
-    /// 暴力的强行图片布局
-    switch (item.images.length) {
-      case 1:
-        itemChildren.add(item.images[0]);
-        break;
-      case 2:
-        itemChildren.add(Row(children: <Widget>[
-          item.images[0],
-          SimpleDivider(height: 0, width: 3),
-          item.images[1],
-        ]));
-        break;
-      case 3:
-        itemChildren
-          ..add(Row(children: <Widget>[
-            item.images[0],
-            SimpleDivider(height: 0, width: 3),
-            item.images[1],
-          ]))
-          ..add(SimpleDivider(height: 3, width: 0))
-          ..add(Row(children: <Widget>[item.images[2]]));
-        break;
-      case 4:
-        itemChildren
-          ..add(Row(children: <Widget>[
-            item.images[0],
-            SimpleDivider(height: 0, width: 3),
-            item.images[1]
-          ]))
-          ..add(SimpleDivider(height: 3, width: 0))
-          ..add(Row(children: <Widget>[
-            item.images[2],
-            SimpleDivider(height: 0, width: 3),
-            item.images[3]
-          ]));
-        break;
-      case 5:
-        itemChildren
-          ..add(Row(children: <Widget>[
-            item.images[0],
-            SimpleDivider(height: 0, width: 3),
-            item.images[1],
-            SimpleDivider(height: 0, width: 3),
-            item.images[2]
-          ]))
-          ..add(SimpleDivider(height: 3, width: 0))
-          ..add(Row(children: <Widget>[
-            item.images[3],
-            SimpleDivider(height: 0, width: 3),
-            item.images[4]
-          ]));
-        break;
-      case 6:
-        itemChildren
-          ..add(Row(children: <Widget>[
-            item.images[0],
-            SimpleDivider(height: 0, width: 3),
-            item.images[1],
-            SimpleDivider(height: 0, width: 3),
-            item.images[2]
-          ]))
-          ..add(SimpleDivider(height: 3, width: 0))
-          ..add(Row(children: <Widget>[
-            item.images[3],
-            SimpleDivider(height: 0, width: 3),
-            item.images[4],
-            SimpleDivider(height: 0, width: 3),
-            item.images[5]
-          ]));
-        break;
-      case 7:
-        itemChildren
-          ..add(Row(children: <Widget>[
-            item.images[0],
-            SimpleDivider(height: 0, width: 3),
-            item.images[1],
-            SimpleDivider(height: 0, width: 3),
-            item.images[2]
-          ]))
-          ..add(SimpleDivider(height: 3, width: 0))
-          ..add(Row(children: <Widget>[
-            item.images[3],
-            SimpleDivider(height: 0, width: 3),
-            item.images[4],
-            SimpleDivider(height: 0, width: 3),
-            item.images[5]
-          ]))
-          ..add(SimpleDivider(height: 3, width: 0))
-          ..add(Row(
-            children: <Widget>[item.images[6]],
-          ));
-        break;
-      case 8:
-        itemChildren
-          ..add(Row(children: <Widget>[
-            item.images[0],
-            SimpleDivider(height: 0, width: 3),
-            item.images[1],
-            SimpleDivider(height: 0, width: 3),
-            item.images[2]
-          ]))
-          ..add(SimpleDivider(height: 3, width: 0))
-          ..add(Row(children: <Widget>[
-            item.images[3],
-            SimpleDivider(height: 0, width: 3),
-            item.images[4],
-            SimpleDivider(height: 0, width: 3),
-            item.images[5]
-          ]))
-          ..add(SimpleDivider(height: 3, width: 0))
-          ..add(Row(
-            children: <Widget>[item.images[6], item.images[7]],
-          ));
-        break;
-      case 9:
-        itemChildren
-          ..add(Row(children: <Widget>[
-            item.images[0],
-            SimpleDivider(height: 0, width: 3),
-            item.images[1],
-            SimpleDivider(height: 0, width: 3),
-            item.images[2]
-          ]))
-          ..add(SimpleDivider(height: 3, width: 0))
-          ..add(Row(children: <Widget>[
-            item.images[3],
-            SimpleDivider(height: 0, width: 3),
-            item.images[4],
-            SimpleDivider(height: 0, width: 3),
-            item.images[5]
-          ]))
-          ..add(SimpleDivider(height: 3, width: 0))
-          ..add(Row(
-            children: <Widget>[
-              item.images[6],
-              SimpleDivider(height: 0, width: 3),
-              item.images[7],
-              SimpleDivider(height: 0, width: 3),
-              item.images[8]
-            ],
-          ));
-        break;
-    }
-
     /// 发布时间、来源、操作
-    itemChildren.add(Row(
-      mainAxisSize: MainAxisSize.max,
-      crossAxisAlignment: CrossAxisAlignment.center,
-      mainAxisAlignment: MainAxisAlignment.start,
-      children: <Widget>[
-        Text(item.timeStr, style: TextStyle(fontSize: 12)),
-        SimpleDivider(height: 0, width: 8),
-        Expanded(child: Text(item.from, style: TextStyle(fontSize: 12))),
-        // Text(item.from, style: TextStyle(fontSize: 12)),
-        Container(
-          padding: EdgeInsets.only(right: 5),
-          child: Icon(Icons.more_horiz),
-        ),
-      ],
+    itemChildren.add(Container(
+      padding: EdgeInsets.only(right: 8, top: 10),
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.start,
+        children: <Widget>[
+          Text(item.timeStr, style: TextStyle(fontSize: 12)),
+          SimpleDivider(height: 0, width: 8),
+          Expanded(child: Text(item.from, style: TextStyle(fontSize: 12))),
+          ClipRRect(
+            borderRadius: BorderRadius.circular(4),
+            child: Container(
+              color: Colors.grey[100],
+              child: Icon(Icons.more_horiz),
+            ),
+          ),
+        ],
+      ),
     ));
 
     var row = Row(
-      mainAxisSize: MainAxisSize.max,
       mainAxisAlignment: MainAxisAlignment.start,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
@@ -400,7 +264,6 @@ class _FriendCirclePageState extends State<FriendCirclePage> {
     );
 
     var column = Column(
-      mainAxisSize: MainAxisSize.max,
       children: <Widget>[
         row,
         Divider(height: 10),

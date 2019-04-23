@@ -30,7 +30,12 @@ class _NetworkImageExState extends State<NetworkImageEx> {
   @override
   Widget build(BuildContext context) {
     var stackChildren = <Widget>[
-      Image.asset(widget.assetName),
+      Image.asset(
+        widget.assetName,
+        width: widget.width,
+        height: widget.height,
+        fit: widget.fit,
+      ),
     ];
     if (widget.indicator) stackChildren.add(CircularProgressIndicator());
 
