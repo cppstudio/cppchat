@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:cpp_chat/widgets.dart';
+import 'package:transparent_image/transparent_image.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 
 class FriendCirclePage extends StatefulWidget {
   @override
@@ -176,9 +178,17 @@ class _FriendCirclePageState extends State<FriendCirclePage> {
                   SimpleDivider(height: 0, width: 10),
 
                   /// 大头像要加上一点点圆边
+                  // ClipRRect(
+                  //   borderRadius: BorderRadius.circular(6.0),
+                  //   child: Image.network('http://lorempixel.com/80/80/'),
+                  // ),
+                  /// 使用透明图片作为占位符
                   ClipRRect(
-                    borderRadius: BorderRadius.circular(6.0),
-                    child: Image.network('http://lorempixel.com/80/80/'),
+                    borderRadius: BorderRadius.circular(6),
+                    child: CachedNetworkImage(
+                      placeholder: (ctx, str) => CircularProgressIndicator(),
+                      imageUrl: 'http://lorempixel.com/1000/1000/',
+                    ),
                   ),
                 ],
               ),
