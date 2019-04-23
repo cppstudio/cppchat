@@ -15,7 +15,7 @@ C++团队专用聊天吹水工具，开始了，别急
     - `\lib\network`:网络请求相关
     - `\lib\page`:所有App界面
     - `\lib\utils\[开发者名称]`:通用工具
-    - `\lib\widget\[开发者名称]`:自定义组件
+    - `\lib\widgets\[开发者名称]`:自定义组件
     - `routes.dart`:全局路由
     - `config.dart`:全局配置
     

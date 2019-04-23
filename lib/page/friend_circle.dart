@@ -1,7 +1,7 @@
+import 'package:cpp_chat/widgets/da/network_image_ex.dart';
 import 'package:flutter/material.dart';
 import 'package:cpp_chat/widgets.dart';
-import 'package:transparent_image/transparent_image.dart';
-import 'package:cached_network_image/cached_network_image.dart';
+import 'package:cpp_chat/widgets/da/avatar.dart';
 
 class FriendCirclePage extends StatefulWidget {
   @override
@@ -146,8 +146,10 @@ class _FriendCirclePageState extends State<FriendCirclePage> {
     return FlexibleSpaceBar(
       background: Stack(
         children: <Widget>[
-          Image.network(
-            'http://lorempixel.com/300/300/',
+          /// 封面图
+          NetworkImageEx(
+            assetImage: 'images/avatar.jpg',
+            imageUrl: 'http://lorempixel.com/2000/2000/',
             fit: BoxFit.fill,
             width: double.infinity,
             height: 260,
@@ -160,6 +162,7 @@ class _FriendCirclePageState extends State<FriendCirclePage> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: <Widget>[
+                  /// 头像旁边的用户名
                   Container(
                     padding: EdgeInsets.only(top: 10),
                     child: Text('用户名',
@@ -176,20 +179,8 @@ class _FriendCirclePageState extends State<FriendCirclePage> {
                         )),
                   ),
                   SimpleDivider(height: 0, width: 10),
-
-                  /// 大头像要加上一点点圆边
-                  // ClipRRect(
-                  //   borderRadius: BorderRadius.circular(6.0),
-                  //   child: Image.network('http://lorempixel.com/80/80/'),
-                  // ),
-                  /// 使用透明图片作为占位符
-                  ClipRRect(
-                    borderRadius: BorderRadius.circular(6),
-                    child: CachedNetworkImage(
-                      placeholder: (ctx, str) => CircularProgressIndicator(),
-                      imageUrl: 'http://lorempixel.com/1000/1000/',
-                    ),
-                  ),
+                  /// 大头像
+                  CppChatAvatar(imageUrl: 'http://lorempixel.com/1500/1500/'),
                 ],
               ),
             ),
