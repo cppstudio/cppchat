@@ -7,7 +7,9 @@ class CppChatAvatar extends StatefulWidget {
   final double width;
   final double height;
 
-  CppChatAvatar({Key key, this.imageUrl, this.width, this.height}) : super(key: key);
+  CppChatAvatar({Key key, this.imageUrl, this.width: 35, this.height: 35})
+      : assert(imageUrl != null),
+        super(key: key);
 
   _CppChatAvatarState createState() => _CppChatAvatarState();
 }
@@ -20,7 +22,7 @@ class _CppChatAvatarState extends State<CppChatAvatar> {
     return ClipRRect(
       borderRadius: BorderRadius.circular(6),
       child: NetworkImageEx(
-        assetImage: 'images/avatar.jpg',
+        assetName: 'images/avatar.jpg',
         indicator: true,
         imageUrl: widget.imageUrl,
         width: widget.width,

@@ -148,7 +148,7 @@ class _FriendCirclePageState extends State<FriendCirclePage> {
         children: <Widget>[
           /// 封面图
           NetworkImageEx(
-            assetImage: 'images/avatar.jpg',
+            assetName: 'images/avatar.jpg',
             imageUrl: 'http://lorempixel.com/300/300/',
             fit: BoxFit.fill,
             width: double.infinity,
@@ -179,8 +179,13 @@ class _FriendCirclePageState extends State<FriendCirclePage> {
                         )),
                   ),
                   SimpleDivider(height: 0, width: 10),
+
                   /// 大头像
-                  CppChatAvatar(imageUrl: 'http://lorempixel.com/1500/1500/'),
+                  CppChatAvatar(
+                    imageUrl: 'http://lorempixel.com/1500/1500/',
+                    width: 80,
+                    height: 80,
+                  ),
                 ],
               ),
             ),
@@ -354,16 +359,23 @@ class _FriendCirclePageState extends State<FriendCirclePage> {
 
     /// 发布时间、来源、操作
     itemChildren.add(Row(
+      mainAxisSize: MainAxisSize.max,
+      crossAxisAlignment: CrossAxisAlignment.center,
+      mainAxisAlignment: MainAxisAlignment.start,
       children: <Widget>[
         Text(item.timeStr, style: TextStyle(fontSize: 12)),
-        SimpleDivider(height: 0, width: 12),
-        // Expanded(child: Text(item.from, style: TextStyle(fontSize: 12))),
-        Text(item.from, style: TextStyle(fontSize: 12)),
-        FlatButton(child: Icon(Icons.more_horiz), onPressed: () {}),
+        SimpleDivider(height: 0, width: 8),
+        Expanded(child: Text(item.from, style: TextStyle(fontSize: 12))),
+        // Text(item.from, style: TextStyle(fontSize: 12)),
+        Container(
+          padding: EdgeInsets.only(right: 5),
+          child: Icon(Icons.more_horiz),
+        ),
       ],
     ));
 
     var row = Row(
+      mainAxisSize: MainAxisSize.max,
       mainAxisAlignment: MainAxisAlignment.start,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
@@ -377,18 +389,23 @@ class _FriendCirclePageState extends State<FriendCirclePage> {
         ),
 
         /// 朋友圈主体
-        Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: itemChildren,
+        Expanded(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: itemChildren,
+          ),
         ),
       ],
     );
 
-    var column = Column(children: <Widget>[
-      row,
-      Divider(height: 10),
-    ]);
+    var column = Column(
+      mainAxisSize: MainAxisSize.max,
+      children: <Widget>[
+        row,
+        Divider(height: 10),
+      ],
+    );
 
     return column;
   }
