@@ -1,61 +1,35 @@
 import 'package:flutter/material.dart';
-import 'page/friend_circle.dart';
-import 'routes.dart';
-import 'config.dart';
+import './app.dart';
+import './loading.dart';
+import 'package:flutter_webview_plugin/flutter_webview_plugin.dart';
+import './search.dart';
 
-void main() => runApp(MyApp());
-
-class MyApp extends StatelessWidget {
-  // This widget is the root of your application.
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: GlobalConfig.title,
-      theme: ThemeData(
-        accentColor: Colors.white,
-        backgroundColor: Colors.white,
-        bottomAppBarColor: Colors.white,
-        buttonColor: Colors.green,
-        cardColor: Colors.white,
-        dialogBackgroundColor: Colors.white,
-        highlightColor: Colors.grey,
-        primaryColor: Colors.white,
-        scaffoldBackgroundColor: Colors.white,
-        primarySwatch: Colors.blue,
+void main()=>runApp(
+  MaterialApp(
+    debugShowCheckedModeBanner: false,
+    title: '聊天室',
+    //自定义主题
+    theme: mDefaultTheme,
+    //添加路由
+    routes: <String, WidgetBuilder>{
+      "app" : (BuildContext context)=>new App(),
+      "/friends":(_)=>new WebviewScaffold(
+        //webview插件
+        url: "https://flutter.io/",
+        appBar:new AppBar(
+          title: Text('flutter 官网'),
+        ),
+        withZoom:true,
+        withLocalStorage:true,
       ),
-      home: HomePage(title: GlobalConfig.title),
-      routes: {
-        UIRoute.friend_circle: (ctx) => FriendCirclePage(),
-      },
-    );
-  }
-}
+      "search":(BuildContext context)=>new Search(),
+    },
+    home: new LoadingPage(),
+  )
+);
 
-class HomePage extends StatefulWidget {
-  final String title;
-
-  HomePage({this.title});
-
-  @override
-  _HomePageState createState() => _HomePageState();
-}
-
-class _HomePageState extends State<HomePage> {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
-      ),
-      body: ListView(
-        children: <Widget>[
-          RaisedButton(
-              child: Text('点击进入朋友圈'),
-              onPressed: () {
-                Navigator.pushNamed(context, UIRoute.friend_circle);
-              }),
-        ],
-      ),
-    );
-  }
-}
+final ThemeData mDefaultTheme =new ThemeData(
+  primaryColor: Color(0xFFF5F5F5),             //前景色   
+  scaffoldBackgroundColor: Color(0xFFEDEDED),  //背景颜色（间隔）
+  cardColor: Color(0xFF4C4C4C)                 //popmenu颜色           
+);
