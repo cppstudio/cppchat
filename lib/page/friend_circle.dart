@@ -3,6 +3,7 @@ import 'package:cpp_chat/widgets/da/network_image_ex.dart';
 import 'package:flutter/material.dart';
 import 'package:cpp_chat/widgets.dart';
 import 'package:cpp_chat/widgets/da/avatar.dart';
+import 'package:cpp_chat/widgets/da/more_button.dart';
 
 class FriendCirclePage extends StatefulWidget {
   @override
@@ -31,6 +32,7 @@ class _FriendCirclePageState extends State<FriendCirclePage> {
   ScrollController _scrollController;
 
   var _circleList = List<FriendCircleItem>();
+  var _isChangeColor = false;
 
   Future<void> _refresh() async {
     await Future.delayed(Duration(seconds: 1), () {
@@ -45,7 +47,7 @@ class _FriendCirclePageState extends State<FriendCirclePage> {
       ],
       timeStr: '1分钟前',
       from: '',
-      avatar: CppChatAvatar(
+      avatar: CppAvatar(
         imageUrl: 'http://lorempixel.com/35/35/',
       ),
     ));
@@ -61,7 +63,7 @@ class _FriendCirclePageState extends State<FriendCirclePage> {
       ],
       timeStr: '1分钟前',
       from: 'CppChat客户端',
-      avatar: CppChatAvatar(
+      avatar: CppAvatar(
         imageUrl: 'http://lorempixel.com/35/35/',
       ),
     ));
@@ -82,7 +84,7 @@ class _FriendCirclePageState extends State<FriendCirclePage> {
       ],
       timeStr: '1分钟前',
       from: 'CppChat客户端',
-      avatar: CppChatAvatar(
+      avatar: CppAvatar(
         imageUrl: 'http://lorempixel.com/35/35/',
       ),
     ));
@@ -97,7 +99,7 @@ class _FriendCirclePageState extends State<FriendCirclePage> {
         ],
         timeStr: '$i分钟前',
         from: 'CppChat客户端',
-        avatar: CppChatAvatar(
+        avatar: CppAvatar(
           height: 35,
           imageUrl: 'http://lorempixel.com/35/35/?id=$i',
         ),
@@ -140,14 +142,23 @@ class _FriendCirclePageState extends State<FriendCirclePage> {
   Widget _buildAppBar(BuildContext context) {
     return SliverAppBar(
       elevation: 0,
-      brightness: Brightness.dark,
+      brightness: _isChangeColor ? Brightness.light : Brightness.dark,
       primary: true,
       pinned: true,
-      title: Text('朋友圈'),
+      title: Text(
+        '朋友圈',
+        style: TextStyle(color: _isChangeColor ? Colors.black : Colors.white),
+      ),
       titleSpacing: 0,
       actions: <Widget>[
         IconButton(
-            icon: Icon(Icons.camera_alt, color: Colors.black), onPressed: () {})
+          icon: Icon(Icons.camera_alt, color: _isChangeColor ? Colors.black : Colors.white),
+          onPressed: () {
+            setState(() {
+              _isChangeColor = !_isChangeColor;
+            });
+          },
+        ),
       ],
       backgroundColor: Colors.white,
       expandedHeight: 280,
@@ -162,8 +173,8 @@ class _FriendCirclePageState extends State<FriendCirclePage> {
         children: <Widget>[
           /// 封面图
           NetworkImageEx(
-            assetName: 'images/grey.jpg',
-            imageUrl: 'http://lorempixel.com/300/300/',
+            assetName: 'images/friend_circle_cover_bg.jpg',
+            imageUrl: 'http://lorempixel.com/1000/1000/',
             fit: BoxFit.fill,
             width: double.infinity,
             height: 260,
@@ -195,7 +206,7 @@ class _FriendCirclePageState extends State<FriendCirclePage> {
                   SimpleDivider(height: 0, width: 10),
 
                   /// 大头像
-                  CppChatAvatar(
+                  CppAvatar(
                     imageUrl: 'http://lorempixel.com/1500/1500/',
                     width: 80,
                     height: 80,
@@ -239,20 +250,71 @@ class _FriendCirclePageState extends State<FriendCirclePage> {
         mainAxisAlignment: MainAxisAlignment.start,
         children: <Widget>[
           Text(item.timeStr,
-              style: TextStyle(fontSize: 12, color: Colors.grey[600])),
+              style: TextStyle(fontSize: 11, color: Colors.grey[600])),
           SimpleDivider(height: 0, width: 8),
           Expanded(
               child: Text(item.from,
-                  style: TextStyle(fontSize: 12, color: Colors.grey[600]))),
-          ClipRRect(
-            borderRadius: BorderRadius.circular(4),
-            child: Container(
-              color: Colors.grey[100],
-              child: Icon(Icons.more_horiz),
-            ),
-          ),
+                  style: TextStyle(fontSize: 11, color: Colors.grey[600]))),
+          CppMoreButton(),
         ],
       ),
+    ));
+
+    /// 点赞信息
+    itemChildren.add(Row(
+      crossAxisAlignment: CrossAxisAlignment.center,
+      mainAxisAlignment: MainAxisAlignment.start,
+      children: <Widget>[
+        Expanded(
+          child: Container(
+            padding: EdgeInsets.only(right: 8, top: 8),
+            child: Container(
+              padding: EdgeInsets.fromLTRB(5, 5, 5, 5),
+              alignment: Alignment.centerLeft,
+              color: Colors.grey[200],
+              child: Wrap(
+                crossAxisAlignment: WrapCrossAlignment.center,
+                spacing: 2,
+                children: <Widget>[
+                  Icon(
+                    Icons.favorite_border,
+                    size: 11,
+                    color: Colors.blue[900],
+                  ),
+                  Text(
+                    '点赞的人1,',
+                    style: TextStyle(fontSize: 11, color: Colors.blue[900]),
+                  ),
+                  Text(
+                    '点赞的人1',
+                    style: TextStyle(fontSize: 11, color: Colors.blue[900]),
+                  ),
+                  Text(
+                    '点赞的人1',
+                    style: TextStyle(fontSize: 11, color: Colors.blue[900]),
+                  ),
+                  Text(
+                    '点赞的人1',
+                    style: TextStyle(fontSize: 11, color: Colors.blue[900]),
+                  ),
+                  Text(
+                    '点赞的人1',
+                    style: TextStyle(fontSize: 11, color: Colors.blue[900]),
+                  ),
+                  Text(
+                    '点赞的人1',
+                    style: TextStyle(fontSize: 11, color: Colors.blue[900]),
+                  ),
+                  Text(
+                    '点赞的人1',
+                    style: TextStyle(fontSize: 11, color: Colors.blue[900]),
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ),
+      ],
     ));
 
     var row = Row(
