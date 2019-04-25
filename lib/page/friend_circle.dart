@@ -140,19 +140,20 @@ class _FriendCirclePageState extends State<FriendCirclePage> {
   }
 
   Widget _buildAppBar(BuildContext context) {
-    return SliverAppBar(
+    var appBar = SliverAppBar(
       elevation: 0,
       brightness: _isChangeColor ? Brightness.light : Brightness.dark,
       primary: true,
       pinned: true,
       title: Text(
-        '朋友圈',
+        _isChangeColor ? '朋友圈' : '',
         style: TextStyle(color: _isChangeColor ? Colors.black : Colors.white),
       ),
       titleSpacing: 0,
       actions: <Widget>[
         IconButton(
-          icon: Icon(Icons.camera_alt, color: _isChangeColor ? Colors.black : Colors.white),
+          icon: Icon(Icons.camera_alt,
+              color: _isChangeColor ? Colors.black : Colors.white),
           onPressed: () {
             setState(() {
               _isChangeColor = !_isChangeColor;
@@ -164,6 +165,15 @@ class _FriendCirclePageState extends State<FriendCirclePage> {
       expandedHeight: 280,
       flexibleSpace: _buildFlexibleSpaceBar(),
     );
+
+    var theme = Theme(
+      data: ThemeData(
+        primaryColor: _isChangeColor ? Colors.white : Colors.black,
+      ),
+      child: appBar,
+    );
+
+    return theme;
   }
 
   Widget _buildFlexibleSpaceBar() {
