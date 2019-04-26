@@ -8,11 +8,7 @@ class CppAvatar extends StatefulWidget {
   final double height;
   final BoxFit fit;
 
-<<<<<<< HEAD
-  CppChatAvatar(
-=======
   CppAvatar(
->>>>>>> develop-da
       {Key key,
       this.imageUrl,
       this.width: 40,

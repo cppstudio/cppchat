@@ -32,8 +32,7 @@ class AppState extends State<App> {
     switch (_currentIndex) {
       case 0:
         if (message == null) {
-          message = new MessagePage(
-          );
+          message = new MessagePage();
         }
         return message;
       case 1:
@@ -91,7 +90,7 @@ class AppState extends State<App> {
                       'images/message_normal.png',
                       width: 32.0,
                       height: 28.0,
-                    )),      
+                    )),
           new BottomNavigationBarItem(
               title: new Text(
                 '通讯录',

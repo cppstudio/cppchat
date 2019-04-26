@@ -11,10 +11,14 @@ class Personal extends StatelessWidget {
       appBar: AppBar(
         elevation: 0.0,
         title: Text(''),
-        backgroundColor: Colors.white,//AppBar的背景颜色
+        backgroundColor: Colors.white, //AppBar的背景颜色
         actions: <Widget>[
           IconButton(
-            icon: Icon(Icons.photo_camera,color: Colors.black,),
+            icon: Icon(
+              Icons.photo_camera,
+              color: Colors.black,
+            ),
+            onPressed: () {},
           )
         ],
       ),
@@ -77,8 +81,10 @@ class Personal extends StatelessWidget {
                 ],
               ),
               onPressed: () {
-                Navigator.push(context,new MaterialPageRoute(builder: (context) => new Account()),
-            );
+                Navigator.push(
+                  context,
+                  new MaterialPageRoute(builder: (context) => new Account()),
+                );
               },
             ),
           ),

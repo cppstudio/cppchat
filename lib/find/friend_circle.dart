@@ -1,8 +1,8 @@
-import '../widgets/da/grid_images.dart';
-import '../widgets/da/network_image_ex.dart';
+import 'package:cpp_chat/widgets/da/grid_images.dart';
+import 'package:cpp_chat/widgets/da/avatar.dart';
+import 'package:cpp_chat/widgets/da/network_image_ex.dart';
 import 'package:flutter/material.dart';
-import '../widgets.dart';
-import '../widgets/da/avatar.dart';
+import 'package:cpp_chat/widgets.dart';
 
 class FriendCirclePage extends StatefulWidget {
   @override
@@ -44,7 +44,7 @@ class _FriendCirclePageState extends State<FriendCirclePage> {
       ],
       timeStr: '1分钟前',
       from: '',
-      avatar: CppChatAvatar(
+      avatar: CppAvatar(
         imageUrl: 'http://lorempixel.com/35/35/',
       ),
     ));
@@ -60,7 +60,7 @@ class _FriendCirclePageState extends State<FriendCirclePage> {
       ],
       timeStr: '1分钟前',
       from: 'CppChat客户端',
-      avatar: CppChatAvatar(
+      avatar: CppAvatar(
         imageUrl: 'http://lorempixel.com/35/35/',
       ),
     ));
@@ -81,7 +81,7 @@ class _FriendCirclePageState extends State<FriendCirclePage> {
       ],
       timeStr: '1分钟前',
       from: 'CppChat客户端',
-      avatar: CppChatAvatar(
+      avatar: CppAvatar(
         imageUrl: 'http://lorempixel.com/35/35/',
       ),
     ));
@@ -96,7 +96,7 @@ class _FriendCirclePageState extends State<FriendCirclePage> {
         ],
         timeStr: '$i分钟前',
         from: 'CppChat客户端',
-        avatar: CppChatAvatar(
+        avatar: CppAvatar(
           height: 35,
           imageUrl: 'http://lorempixel.com/35/35/?id=$i',
         ),
@@ -187,7 +187,7 @@ class _FriendCirclePageState extends State<FriendCirclePage> {
                   SimpleDivider(height: 0, width: 10),
 
                   /// 大头像
-                  CppChatAvatar(
+                  CppAvatar(
                     imageUrl: 'http://lorempixel.com/1500/1500/',
                     width: 80,
                     height: 80,
