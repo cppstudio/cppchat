@@ -18,7 +18,7 @@ class NetworkImageEx extends StatefulWidget {
       this.indicator: false,
       this.width,
       this.height,
-      this.fit})
+      this.fit: BoxFit.fitWidth})
       : assert(imageUrl != null),
         assert(assetName != null),
         super(key: key);

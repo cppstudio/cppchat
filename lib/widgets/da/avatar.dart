@@ -2,13 +2,17 @@ import 'package:flutter/material.dart';
 import 'network_image_ex.dart';
 
 /// 用户头像组件
-class CppChatAvatar extends StatefulWidget {
+class CppAvatar extends StatefulWidget {
   final String imageUrl;
   final double width;
   final double height;
   final BoxFit fit;
 
+<<<<<<< HEAD
   CppChatAvatar(
+=======
+  CppAvatar(
+>>>>>>> develop-da
       {Key key,
       this.imageUrl,
       this.width: 40,
@@ -17,10 +21,10 @@ class CppChatAvatar extends StatefulWidget {
       : assert(imageUrl != null),
         super(key: key);
 
-  _CppChatAvatarState createState() => _CppChatAvatarState();
+  _CppAvatarState createState() => _CppAvatarState();
 }
 
-class _CppChatAvatarState extends State<CppChatAvatar> {
+class _CppAvatarState extends State<CppAvatar> {
   @override
   Widget build(BuildContext context) {
     /// 头像要加上一点点圆边

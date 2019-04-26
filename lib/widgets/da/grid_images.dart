@@ -1,6 +1,6 @@
-import '../../widgets.dart';
+import 'package:cpp_chat/widgets.dart';
 import 'package:flutter/material.dart';
-import '../../widgets/da/network_image_ex.dart';
+import 'package:cpp_chat/widgets/da/network_image_ex.dart';
 
 class GridImages extends StatefulWidget {
   final List<String> imagesUrl;
